@@ -14,8 +14,8 @@ A_finFscore=zeros(1,8);
 indClusterALL=zeros(12,8);
 step=0.01;
 for min_count=1:1
-    for count=660:680
-        path=sprintf('D:\\pythonwork\\NMFZhou\\version_4\\calc_net/%d/',count);
+    for count=671:671
+        path=sprintf('calc_net/%d/',count);
         V1=load([path,'data0.txt']);
         
         V2=load([path,'data1.txt']);
@@ -44,7 +44,7 @@ for min_count=1:1
         ite=1000;
         change=0.001;
         
-        [ W_re,H_re,err,err_data]=A_MNNF_DUG(VData,r,tol,ite,lamda,change,0,'svd');
+        [ W_re,H_re,err,err_data,~,last_err]=A_MNNF_DUG(VData,r,tol,ite,lamda,change,1,'svd');
         V_re=A_Calc(W_re,H_re);
         [indCluster,Xout,Aout,Yout]=A_Cluster(W_re');
         indClusterALL(:,count)=indCluster;
