@@ -17,14 +17,14 @@ change=1;
 
 tol=0.0001;
 r=3;
-ite=1000;
+ite=500;
 for min_count=1:10
     lamda=step*min_count;
     
     change=change_step*change;
-    if min_count<8
-        continue
-    end
+%     if min_count<8
+%         continue
+%     end
     for count=1:100
         min_count
         count

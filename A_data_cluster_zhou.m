@@ -11,7 +11,8 @@ A_PU=zeros(1,1);
 A_finFscore=zeros(1,8);
 
 step=0.01;
-for min_count=1:10
+
+for min_count=1:1
     for count=1:100
         path=sprintf('G:\\LP4\\100\\calc_net\\%d\\',count);
         V1=load([path,'data0.txt']);
@@ -32,8 +33,8 @@ for min_count=1:10
         lamda=step*min_count;
         tol=0.0001;
         r=3;
-        ite=1000;
-        change=0.1;
+        ite=500;
+        change=1e-6;
         
         [ W_re,H_re,err,err_data]=A_MNNF_DUG_Two(VData,r,tol,ite,lamda,change,0,'svd');
         V_re=A_Calc(W_re,H_re);
